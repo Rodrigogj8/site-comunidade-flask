@@ -1,9 +1,13 @@
 from flask import Flask, render_template, url_for
+from forms import FormLogin, FormCriarConta
 
 app = Flask(__name__)
 
 
 lista_usuarios = ['Rodrigo', 'Camila', 'Valmir', 'Iracema', 'Drogo']
+
+app.config["SECRET_KEY"] = "ae47ac802046ad5b606d5f957528a83f"
+
 
 @app.route("/")
 def home():
@@ -21,7 +25,9 @@ def contato():
 
 @app.route("/login")
 def login():
-    return render_template("login.html")
+    form_login = FormLogin()
+    form_criar_conta = FormCriarConta()
+    return render_template("login.html",form_login=form_login, form_criar_conta=form_criar_conta)
 
 if __name__ == '__main__':
     app.run(debug=True)
