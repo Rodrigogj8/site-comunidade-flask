@@ -1,14 +1,58 @@
-{% extends 'base.html' %} {% block body %}
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>Login</h1>
-      {{ form_login.email }} {{ form_login.senha }}
-    </div>
-    <div class="col">
-      <h1>Criar Conta</h1>
-      {{ form_criar_conta.email }} {{ form_criar_conta.senha }}
+{% extends 'base.html' %}
+{% block body %}
+  <div class="container">
+    <h1>Faça login ou crie sua conta para continuar</h1>
+    <hr>
+    <div class="row">
+      <!-- Formulário de Login -->
+      <div class="col">
+        <form method="POST" action="" class ="border p-3 mb-5 bg-light rounded p-4 mt-2">
+          {{ form_login.hidden_tag() }}
+          <legend>Login</legend>
+          <fieldset>   
+            <div class="form-group">
+              {{ form_login.email.label(class="form-control-label") }} 
+              {{ form_login.email(class="form-control") }} 
+            </div>
+            <div class="form-group">   
+              {{ form_login.senha.label(class="form-control-label") }}
+              {{ form_login.senha(class="form-control") }}
+            </div>   
+            <div class="form-group">   
+              {{ form_login.lembrar_dados.label(class="form-check-label") }}
+              {{ form_login.lembrar_dados(class="form-check-input") }}
+            </div> 
+          </fieldset>
+          {{ form_login.botao_submit_login(class="btn btn-primary mt-2") }}
+        </form>
+      </div>
+
+      <!-- Formulário de Criar Conta -->
+      <div class="col">
+        <form method="POST" action="" class ="border p-3 mb-5 bg-light rounded p-4 mt-2">
+          {{ form_criar_conta.hidden_tag() }}
+          <legend>Criar Conta</legend>
+          <fieldset>
+            <div class="form-group">
+              {{ form_criar_conta.username.label(class="form-control-label") }} 
+              {{ form_criar_conta.username(class="form-control") }}
+            </div>
+            <div class="form-group">
+              {{ form_criar_conta.email.label(class="form-control-label") }}
+              {{ form_criar_conta.email(class="form-control") }}
+            </div>
+            <div class="form-group">
+              {{ form_criar_conta.senha.label(class="form-control-label") }}
+              {{ form_criar_conta.senha(class="form-control") }}
+            </div>
+            <div class="form-group">
+              {{ form_criar_conta.confirmacao_senha.label(class="form-control-label") }}
+              {{ form_criar_conta.confirmacao_senha(class="form-control") }}
+            </div>
+          </fieldset>
+          {{ form_criar_conta.botao_submit_criarconta(class="btn btn-primary mt-2") }}
+        </form>
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}
