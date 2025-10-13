@@ -7,6 +7,7 @@
       <!-- Formulário de Login -->
       <div class="col">
         <form method="POST" action="" class ="border p-3 mb-5 bg-light rounded p-4 mt-2">
+          {{ form_login.csrf_token}}
           {{ form_login.hidden_tag() }}
           <legend>Login</legend>
           <fieldset>   
@@ -30,6 +31,7 @@
       <!-- Formulário de Criar Conta -->
       <div class="col">
         <form method="POST" action="" class ="border p-3 mb-5 bg-light rounded p-4 mt-2">
+          {{form_criar_conta.csrf_token}}
           {{ form_criar_conta.hidden_tag() }}
           <legend>Criar Conta</legend>
           <fieldset>
