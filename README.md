@@ -11,6 +11,8 @@ Este projeto foi criado para testar e aplicar diferentes conceitos de desenvolvi
 **Backend:**
 
 - **Flask 3.1.2** - Escolhi o Flask porque é leve, flexível e perfeito para projetos pequenos e médios
+- **Flask-SQLAlchemy** - ORM para gerenciamento de banco de dados
+- **Flask-WTF** - Integração com WTForms para formulários seguros
 - **Python 3.9** - Linguagem principal do projeto
 - **Jinja2** - Sistema de templates que vem integrado com o Flask
 
@@ -28,14 +30,20 @@ Este projeto foi criado para testar e aplicar diferentes conceitos de desenvolvi
 
 ```
 Site com Flask/
-├── main.py                 # Arquivo principal - aqui ficam as rotas
-├── templates/              # Templates HTML
-│   ├── base.html          # Template base com Bootstrap
-│   ├── navbar.html        # Barra de navegação
-│   ├── home.html          # Página inicial
-│   ├── usuarios.html      # Lista de usuários
-│   ├── contato.html       # Página de contato
-│   └── login.html         # Tela de login
+├── main.py                 # Arquivo principal - ponto de entrada da aplicação
+├── comunidade/             # Blueprint principal da aplicação
+│   ├── __init__.py        # Inicialização do Flask app e configurações
+│   ├── routes.py          # Rotas da aplicação
+│   ├── forms.py           # Formulários com Flask-WTF
+│   ├── models.py          # Modelos do banco de dados (SQLAlchemy)
+│   ├── templates/         # Templates HTML
+│   │   ├── base.html      # Template base com Bootstrap
+│   │   ├── navbar.html    # Barra de navegação
+│   │   ├── home.html      # Página inicial
+│   │   ├── usuarios.html  # Lista de usuários
+│   │   ├── contato.html   # Página de contato
+│   │   └── login.html     # Tela de login
+│   └── testes.py          # Arquivo de testes
 └── venv/                  # Ambiente virtual
 ```
 
@@ -65,6 +73,9 @@ Site com Flask/
 - Layout responsivo graças ao Bootstrap
 - Estrutura de templates bem organizada
 - Navbar com todos os links funcionais
+- Sistema de formulários com validação (Flask-WTF)
+- Estrutura de blueprint para organização modular
+- Modelos de banco de dados preparados (Usuario e Post)
 
 ## Objetivos Técnicos
 
@@ -99,9 +110,10 @@ Facilita a manutenção e permite reutilizar código (como a navbar) em todas as
 ## Observações
 
 - Os dados dos usuários estão hardcoded no código por enquanto
-- O botão "Criar Conta" na navbar redireciona para login (solução temporária)
+- O banco de dados está configurado (SQLite) mas ainda não está sendo utilizado
 - Bootstrap está configurado corretamente (CSS no head, JS no final)
 - Projeto em desenvolvimento ativo
+- Estrutura reorganizada em blueprint para melhor organização e escalabilidade
 
 ---
 
