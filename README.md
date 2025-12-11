@@ -13,6 +13,7 @@ Este projeto foi criado para testar e aplicar diferentes conceitos de desenvolvi
 - **Flask 3.1.2** - Escolhi o Flask porque é leve, flexível e perfeito para projetos pequenos e médios
 - **Flask-SQLAlchemy** - ORM para gerenciamento de banco de dados
 - **Flask-WTF** - Integração com WTForms para formulários seguros
+- **Flask-Bcrypt** - Criptografia de senhas para segurança dos usuários
 - **Python 3.9** - Linguagem principal do projeto
 - **Jinja2** - Sistema de templates que vem integrado com o Flask
 
@@ -76,6 +77,10 @@ Site com Flask/
 - Sistema de formulários com validação (Flask-WTF)
 - Estrutura de blueprint para organização modular
 - Modelos de banco de dados preparados (Usuario e Post)
+- **Sistema de criação de conta funcional** - Usuários podem criar contas que são salvas no banco de dados
+- **Criptografia de senhas** - Senhas são criptografadas usando Flask-Bcrypt antes de serem armazenadas
+- **Banco de dados SQLite ativo** - Armazenamento persistente de usuários
+- **Validação de formulários** - Validação de email, senha e confirmação de senha
 
 ## Objetivos Técnicos
 
@@ -89,10 +94,10 @@ Este projeto serve como um laboratório para testar e validar:
 
 ## Próximas Implementações
 
-- Sistema de login real com autenticação
-- Banco de dados para armazenar usuários
-- Formulários funcionais com validação
-- Sistema de sessões
+- Validação de login com verificação de senha criptografada
+- Sistema de sessões para manter usuário logado
+- Perfil de usuário editável
+- Sistema de posts da comunidade
 - Melhorias no design
 - Mais funcionalidades de comunidade
 
@@ -109,8 +114,10 @@ Facilita a manutenção e permite reutilizar código (como a navbar) em todas as
 
 ## Observações
 
-- Os dados dos usuários estão hardcoded no código por enquanto
-- O banco de dados está configurado (SQLite) mas ainda não está sendo utilizado
+- O banco de dados SQLite está ativo e sendo utilizado para armazenar usuários
+- Senhas são criptografadas usando Flask-Bcrypt antes de serem salvas
+- O sistema de criação de conta está totalmente funcional
+- O sistema de login está implementado, mas ainda precisa validar a senha criptografada
 - Bootstrap está configurado corretamente (CSS no head, JS no final)
 - Projeto em desenvolvimento ativo
 - Estrutura reorganizada em blueprint para melhor organização e escalabilidade
